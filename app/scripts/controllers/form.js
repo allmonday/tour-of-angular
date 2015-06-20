@@ -8,7 +8,8 @@
  * Controller of the tutorialApp
  */
 angular.module('tutorialApp')
-  .controller('AboutCtrl', function ($scope) {
+  .controller('FormCtrl', function ($scope) {
+    console.log('called');
     $scope.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',

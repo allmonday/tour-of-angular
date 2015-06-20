@@ -19,19 +19,30 @@ angular
   ])
   .config(function ($stateProvider, $urlRouterProvider) {
     $stateProvider
-      .state('root', {
-        url:'/',
+      .state('main', {
+        url:'/tutorial',
         controller: 'MainCtrl',
         templateUrl: 'views/main.html',
       })
-      .state('about', {
-        url: '/about',
-        controller: 'AboutCtrl',
-        templateUrl: 'views/about.html',
+      .state('form', {
+        url: '/form',
+        controller: 'FormCtrl',
+        templateUrl: 'views/form.html',
+      })
+      .state('grid', {
+        url: '/grid',
+        controller: 'GridCtrl',
+        templateUrl: 'views/grid.html',
       });
     $urlRouterProvider
       .otherwise(function ($injector, $location) {
         var $state = $injector.get("$state");
-        $state.go("root");
+        $state.go("main");
       })
-  });
+  })
+
+  .run(function ($rootScope, $state) {
+    $rootScope.$on("$stateChangeSuccess", function (event, toS, toP, fromS, fromP, err) {
+      $rootScope._currentState = toS.name;
+    })
+  })
