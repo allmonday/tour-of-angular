@@ -9,10 +9,5 @@
  */
 angular.module('tutorialApp')
   .controller('FormCtrl', function ($scope) {
-    console.log('called');
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+
   });
