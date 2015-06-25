@@ -13,6 +13,7 @@ angular
     'ui.router',
     'ngAnimate',
     'ngCookies',
+    'ngMessages',
     'ngResource',
     'ngSanitize',
     'ngTouch'

@@ -8,6 +8,13 @@
  * Controller of the tutorialApp
  */
 angular.module('tutorialApp')
-  .controller('FormCtrl', function ($scope) {
-
+  .controller('FormCtrl', function ($scope, $http) {
+    $scope.formData = {
+      name: '',
+      age: '',
+      mobile: '',
+      salaryTop: '',
+      salaryBottom: '',
+      hobby: 'writting'
+    }
   });
