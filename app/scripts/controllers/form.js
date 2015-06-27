@@ -10,11 +10,26 @@
 angular.module('tutorialApp')
   .controller('FormCtrl', function ($scope, $http) {
     $scope.formData = {
-      name: '',
-      age: '',
-      mobile: '',
+      name: 'kikodo',
+      age: '21',
+      email: 'al@12.com',
+      mobile: '13150192883',
       salaryTop: '',
       salaryBottom: '',
-      hobby: 'writting'
+      hobby: 'writtings'
+    }
+    $scope.submit = function (form) {
+      if (form.$valid) {
+        alert('do submit');
+      } else {
+        console.log('not to submit');
+      }
+    }
+    $scope.reset = function (form) {
+      if (form) {
+        form.$setPristine();
+        form.$setUntouched();
+      }
+      $scope.formData = {};
     }
   });
