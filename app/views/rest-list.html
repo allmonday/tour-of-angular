@@ -5,8 +5,8 @@
   <li ng-repeat="todo in todoList">
     <h2>{{ todo.title }}</h2>
     <p>{{ todo.description }}</p>
-    <a ui-sref="rest.edit({id: todo.id})">edit</a>
+    <a ui-sref="rest.edit({id: todo.id})" class="btn btn-default">edit</a>
   </li>
 </ul>
 
-<a ui-sref="rest.create">create</a>
+<a ui-sref="rest.create" class="btn btn-default">create</a>

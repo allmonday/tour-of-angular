@@ -8,7 +8,7 @@
  * Controller of the tutorialApp
  */
 angular.module('tutorialApp')
-  .controller('RestEditCtrl', function ($scope, $stateParams, todolist) {
+  .controller('RestEditCtrl', function ($scope, $stateParams, todolist, $state) {
     $scope.todo = todolist.get({id: $stateParams.id});
 
     $scope.update = function (form) {
@@ -18,6 +18,7 @@ angular.module('tutorialApp')
         $scope.todo.$update(
           function (value) {
             console.log('success');
+            $state.go('rest.list');
           }, function (err) {
             console.log(err.data.error);
           }

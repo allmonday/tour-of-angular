@@ -18,7 +18,8 @@ angular
     'ngSanitize',
     'ngTouch'
   ])
-  .config(function ($stateProvider, $urlRouterProvider) {
+  .config(function ($stateProvider, $urlRouterProvider, $resourceProvider) {
+    $resourceProvider.defaults.stripTrailingSlashes = true;
     $stateProvider
       .state('main', {
         url:'/tutorial',

@@ -1,11 +1,18 @@
-<form name="restfulForm" ng-submit="submit()">
-  <label for="description">description</label>
-  <input type="text"
-         name="description"> <br>
-  <label for="title">title</label>
-  <input type="text"
-         name="title">
-  <button type="submit">submit</button>
+<form name="restfulForm" ng-submit="submit(restfulForm)" class="form-group" no-validate>
+  <div class="form-group">
+    <label for="description" class="form-name">description</label>
+    <input type="text"
+           class="form-control"
+           ng-model="todo.description"
+           name="description"> <br>
+    <label for="title" class="form-name">title</label>
+    <input type="text"
+           class="form-control"
+           ng-model="todo.title"
+           name="title">
+
+  </div>
+  <input type="submit" class="btn btn-default"></input>
 </form>
 
-<a ui-sref="rest.list">back to list</a>
+<a ui-sref="rest.list" class="btn btn-default">back to list</a>
