@@ -1,0 +1,12 @@
+<pre>
+  {{ todoList| json}}
+</pre>
+<ul>
+  <li ng-repeat="todo in todoList">
+    <h2>{{ todo.title }}</h2>
+    <p>{{ todo.description }}</p>
+    <a ui-sref="rest.edit({id: todo.id})">edit</a>
+  </li>
+</ul>
+
+<a ui-sref="rest.create">create</a>

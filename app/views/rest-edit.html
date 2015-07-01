@@ -1,0 +1,22 @@
+<h2>edit</h2>
+
+<pre>
+  {{ todo | json }}
+</pre>
+<form name="restfulForm" ng-submit="update(restfulForm)">
+  <label for="description">description</label>
+  <input type="text"
+         ng-model="todo.description"
+         name="description"> <br>
+  <label for="title">title</label>
+  <input type="text"
+         ng-model="todo.title"
+         name="title"> <br>
+  <label for="done">done</label>
+  <input type="checkbox"
+         ng-model="todo.done"
+         name="done"> <br>
+  <input type="submit">update</button>
+</form>
+
+<a ui-sref="rest.list">back to list</a>

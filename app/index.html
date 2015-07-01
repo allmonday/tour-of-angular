@@ -26,7 +26,7 @@
         <ul class="nav nav-pills pull-right">
           <li ng-class="{active: _currentState === 'main'}"><a ui-sref="main">Home</a></li>
           <li ng-class="{active: _currentState === 'form'}"><a ui-sref="form">form</a></li>
-          <li ng-class="{active: _currentState === 'grid'}"><a ui-sref="grid">grid</a></li>
+          <li ng-class="{active: _currentState === 'grid'}"><a ui-sref="rest.list">rest</a></li>
           <!-- <li><a ui-sref="root">Contact</a></li> -->
         </ul>
         <h3 class="text-muted">tutorial</h3>
@@ -90,10 +90,14 @@
         <script src="scripts/app.js"></script>
         <script src="scripts/controllers/main.js"></script>
         <script src="scripts/controllers/form.js"></script>
-        <script src="scripts/controllers/grid.js"></script>
+        <script src="scripts/controllers/rest.js"></script>
         <script src="scripts/directives/blacklist.js"></script>
         <script src="scripts/directives/salarycompare.js"></script>
         <script src="scripts/directives/salarylarge.js"></script>
+        <script src="scripts/services/todolist.js"></script>
+        <script src="scripts/controllers/restlist.js"></script>
+        <script src="scripts/controllers/restcreate.js"></script>
+        <script src="scripts/controllers/restedit.js"></script>
         <!-- endbuild -->
 </body>
 </html>

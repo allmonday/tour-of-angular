@@ -30,12 +30,30 @@ angular
         controller: 'FormCtrl',
         templateUrl: 'views/form.html',
       })
-      .state('grid', {
-        url: '/grid',
-        controller: 'GridCtrl',
-        templateUrl: 'views/grid.html',
-      });
+
+      .state('rest', {
+        url: '/rest',
+        abstract: true,
+        controller: 'RestCtrl',
+        templateUrl: 'views/rest.html',
+      })
+        .state('rest.list', {
+          url: '/list',
+          controller: 'RestListCtrl',
+          templateUrl: 'views/rest-list.html'
+        })
+        .state('rest.create', {
+          url: '/create',
+          controller: 'RestCreateCtrl',
+          templateUrl: 'views/rest-create.html'
+        })
+        .state('rest.edit', {
+          url: '/edit/:id',
+          controller: 'RestEditCtrl',
+          templateUrl: 'views/rest-edit.html'
+        })
     $urlRouterProvider
+      .when('/rest', '/rest/list')
       .otherwise(function ($injector, $location) {
         var $state = $injector.get("$state");
         $state.go("main");

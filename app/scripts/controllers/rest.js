@@ -8,5 +8,5 @@
  * Controller of the tutorialApp
  */
 angular.module('tutorialApp')
-  .controller('GridCtrl', function ($scope) {
+  .controller('RestCtrl', function ($scope) {
   });
