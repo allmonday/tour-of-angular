@@ -27,6 +27,7 @@
           <li ng-class="{active: _currentState === 'main'}"><a ui-sref="main">Home</a></li>
           <li ng-class="{active: _currentState === 'form'}"><a ui-sref="form">form</a></li>
           <li ng-class="{active: _currentState === 'grid'}"><a ui-sref="rest.list">rest</a></li>
+          <li ng-class="{active: _currentState === 'dragAndDrop'}"><a ui-sref="dragAndDrop">drag and drop</a></li>
           <!-- <li><a ui-sref="root">Contact</a></li> -->
         </ul>
         <h3 class="text-muted">tutorial</h3>
@@ -83,6 +84,7 @@
     <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
     <script src="bower_components/angular-messages/angular-messages.js"></script>
     <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <script src="scripts/angular-drag-and-drop-lists.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
@@ -98,6 +100,7 @@
         <script src="scripts/controllers/restlist.js"></script>
         <script src="scripts/controllers/restcreate.js"></script>
         <script src="scripts/controllers/restedit.js"></script>
+        <script src="scripts/controllers/drag-and-drop.js"></script>
         <!-- endbuild -->
 </body>
 </html>

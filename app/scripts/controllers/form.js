@@ -8,7 +8,8 @@
  * Controller of the tutorialApp
  */
 angular.module('tutorialApp')
-  .controller('FormCtrl', function ($scope, $http) {
+  .controller('FormCtrl', function ($scope, $http, formResolvedData) {
+    $scope.formResolvedData = formResolvedData;
     $scope.formData = {
       name: 'kikodo',
       age: '21',

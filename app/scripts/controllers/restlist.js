@@ -8,6 +8,10 @@
  * Controller of the tutorialApp
  */
 angular.module('tutorialApp')
-  .controller('RestListCtrl', function ($scope, todolist) {
+  .controller('RestListCtrl', function ($scope, todolist, resA /*, resB*/) {
     $scope.todoList = todolist.query();
+    $scope.resolvedValue = {
+      resA: resA,
+      // resB: resB
+    }
   });

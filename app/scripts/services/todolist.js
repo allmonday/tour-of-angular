@@ -16,6 +16,9 @@ angular.module('tutorialApp')
                         "query": {
                         isArray: true,
                         transformResponse: function (data) {
+                          // if you do not defined transformResponse, it will
+                          // return angular.fromJson(data);
+                          // otherwise you should do it by yourself
                           return angular.fromJson(data).tasks;
                           }
                         },
@@ -26,8 +29,9 @@ angular.module('tutorialApp')
                         },
                         "update": {
                           method: "PUT",
-                          transformResponse: function (data) {
+                          transformResponse: function (data, headersGetter) {
                             var parsed = angular.fromJson(data);
+                            console.log(headersGetter());
                             if (parsed.error) {
                               return parsed;
                             } else {
