@@ -10,7 +10,6 @@
 
 angular.module("tutorialApp")
   .controller("DragAndDropCtrl", function($scope) {
-    $scope.name = 'kikodo';
 
     $scope.models = {
         selected: null,

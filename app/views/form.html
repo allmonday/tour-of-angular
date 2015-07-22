@@ -1,25 +1,12 @@
 <h3>{{ formResolvedData.title }}</h3>
 <a href="https://code.angularjs.org/1.3.15/docs/guide/forms">angular form</a>
-<form name="formDemo" class="form-group" ng-submit="submit(formDemo)" no-validate>
+<form name="formDemo" class="form-group" ng-submit="submit(formDemo)" novalidate>
+  <button type="submit" class="btn btn-default" ng-class="">提交</button>
+  <button type="button" class="btn btn-default" ng-click="reset(formDemo)">重置</button>
   <h3>[必填项]</h3>
-  <pre>
-    &lt;div class=&quot;form-group&quot; ng-class=&quot;{'has-error': formDemo.name.$dirty &amp;&amp; formDemo.name.$invalid}&quot;&gt;
-      &lt;label class=&quot;control-label&quot; for=&quot;form-name&quot;&gt;name&lt;/label&gt;
-      &lt;input class=&quot;form-control&quot;
-             id=&quot;form-name&quot;
-             ng-model=&quot;formData.name&quot;
-             ng-maxlength=&quot;20&quot;
-             name=&quot;name&quot;
-             ng-required=&quot;true&quot;&gt;
-        &lt;span class=&quot;sr-only&quot;&gt;&lt;/span&gt;
-      &lt;/input&gt;
-      &lt;div ng-messages=&quot;formDemo.name.$error&quot; ng-show=&quot;formDemo.name.$dirty&quot; class=&quot;bg-danger&quot;&gt;
-        &lt;div ng-message=&quot;required&quot;&gt;&#22995;&#21517;&#19981;&#33021;&#20026;&#31354;&lt;/div&gt;
-      &lt;/div&gt;
-    &lt;/div&gt;
-  </pre>
-  <div class="form-group" ng-class="{'has-error': formDemo.name.$dirty && formDemo.name.$invalid}">
-    <label class="control-label" for="form-name">name</label>
+  <!-- <div class="form-group" ng-class="{'has-error': formDemo.name.$dirty && formDemo.name.$invalid || formDemo.$submitted}"> -->
+  <div class="form-group" ng-class="{'has-error': formDemo.$submitted && formDemo.name.$invalid }">
+    <label class="control-label" for="form-name">name [只有在点击提交的时候才显示错误信息]</label>
     <input class="form-control"
            id="form-name"
            ng-model="formData.name"
@@ -28,10 +15,23 @@
            ng-required="true">
       <span class="sr-only"></span>
     </input>
-    <div ng-messages="formDemo.name.$error" ng-show="formDemo.name.$dirty" class="bg-danger">
+    <!-- <div ng-messages="formDemo.name.$error" ng-show="formDemo.name.$dirty" class="bg-danger"> -->
+    <div ng-messages="formDemo.name.$error" ng-show="formDemo.$submitted" class="bg-danger">
       <div ng-message="required">姓名不能为空</div>
     </div>
   </div>
+
+  <div class="form-group" ng-class="{'has-error': formDemo.$submitted && formDemo.custom.$invalid }">
+    <label class="control-label" for="form-custom">customerize selector</label>
+    <div custom-selector
+         name="custom"
+         ng-model="formData.custom">
+    </div>
+    <div ng-messages="formDemo.custom.$error" ng-show="formDemo.$submitted" class="bg-danger">
+      <div ng-message="empty">selector 不能为空</div>
+    </div>
+  </div>
+  <pre>{{ formDemo.custom |json }}</pre>
 
   <div class="form-group" ng-class="{'has-error': formDemo.age.$dirty && formDemo.age.$invalid}">
     <label class="control-label" for="form-age">age</label>
@@ -167,10 +167,9 @@
       <span class="sr-only"></span>
     </input>
   </div>
-  <pre>
-    form demo
-    {{ formDemo| json }}
-  </pre>
+
+  <h3>form demo</h3>
+  <pre>{{ formDemo| json }} </pre>
   <pre>
     form data
     {{ formData | json}}
@@ -192,6 +191,4 @@
     }
   </pre>
 
-  <button type="submit" class="btn btn-default" ng-class="">提交</button>
-  <button type="button" class="btn btn-default" ng-click="reset(formDemo)">重置</button>
 </form>
